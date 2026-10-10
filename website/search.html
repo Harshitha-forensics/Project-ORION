@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORION // Search Archive</title>
+<link rel="stylesheet" href="/orion.css">
+
+<style>
+.search-box {
+  max-width:900px;
+  margin:40px auto;
+}
+
+.search-input {
+  width:100%;
+  box-sizing:border-box;
+  padding:18px;
+  background:#070B14;
+  border:1px solid #334155;
+  border-radius:8px;
+  color:#E5E7EB;
+  font-size:18px;
+  outline:none;
+}
+
+.search-input:focus {
+  border-color:#00D9FF;
+}
+
+.topic-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+  margin-top:25px;
+}
+
+.topic {
+  display:block;
+  padding:20px;
+  background:#0D1320;
+  border:1px solid #263449;
+  border-radius:10px;
+  color:#E5E7EB;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.topic:hover {
+  border-color:#00D9FF;
+  transform:translateY(-2px);
+}
+
+.topic strong {
+  display:block;
+  color:#00D9FF;
+  margin-bottom:7px;
+}
+
+.topic span {
+  color:#94A3B8;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="site-shell">
+
+<header class="topbar">
+  <div class="brand">
+    <img src="/orion-assets/orion-logo.svg" alt="ORION">
+    <span>ORION // CONTROLLED ARCHIVE</span>
+  </div>
+
+  <div class="status">
+    <span class="dot"></span>
+    ARCHIVE ONLINE
+  </div>
+</header>
+
+<main class="page-wrap">
+
+<section class="hero-small">
+  <div class="eyebrow">CONTROLLED FORENSIC ENVIRONMENT</div>
+  <h1>Search the ORION Archive</h1>
+
+  <p>
+    Choose one harmless research topic. Activity performed inside
+    this controlled environment may be examined during the forensic demonstration.
+  </p>
+</section>
+
+<section class="panel search-box">
+
+  <div class="eyebrow">SEARCH TERMINAL</div>
+
+  <form method="GET" action="/search.html">
+
+    <input
+      class="search-input"
+      name="q"
+      type="text"
+      placeholder="Enter a topic..."
+      autocomplete="off"
+      required
+    >
+
+    <br><br>
+
+    <button class="btn primary" type="submit">
+      SEARCH ARCHIVE
+    </button>
+
+  </form>
+
+</section>
+
+<section class="panel">
+
+  <div class="eyebrow">CONTROLLED TOPICS</div>
+
+  <div class="topic-grid">
+
+    <a class="topic" href="/search.html?q=flowers">
+      <strong>Flowers</strong>
+      <span>Botanical research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=mountain">
+      <strong>Mountain</strong>
+      <span>Geographic research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=football">
+      <strong>Football</strong>
+      <span>Sports research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=space">
+      <strong>Space</strong>
+      <span>Scientific research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=pizza">
+      <strong>Pizza</strong>
+      <span>Food research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=technology">
+      <strong>Technology</strong>
+      <span>Technology research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=music">
+      <strong>Music</strong>
+      <span>Music research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=photography">
+      <strong>Photography</strong>
+      <span>Photography research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=travel">
+      <strong>Travel</strong>
+      <span>Travel research</span>
+    </a>
+
+    <a class="topic" href="/search.html?q=ai">
+      <strong>AI</strong>
+      <span>Artificial intelligence</span>
+    </a>
+
+  </div>
+
+</section>
+
+<section class="panel" id="result-panel" style="display:none">
+
+  <div class="eyebrow">SEARCH RESULT</div>
+
+  <div id="result"></div>
+
+</section>
+
+</main>
+
+</div>
+
+<script>
+
+const records = {
+  flowers: {
+    page: "/flowers.html",
+    name: "Flowers Research Record"
+  },
+
+  mountain: {
+    page: "/mountain.html",
+    name: "Mountain Research Record"
+  },
+
+  football: {
+    page: "/football.html",
+    name: "Football Research Record"
+  },
+
+  space: {
+    page: "/space.html",
+    name: "Space Research Record"
+  },
+
+  pizza: {
+    page: "/pizza.html",
+    name: "Pizza Research Record"
+  },
+
+  technology: {
+    page: "/technology.html",
+    name: "Technology Research Record"
+  },
+
+  music: {
+    page: "/music.html",
+    name: "Music Research Record"
+  },
+
+  photography: {
+    page: "/photography.html",
+    name: "Photography Research Record"
+  },
+
+  travel: {
+    page: "/travel.html",
+    name: "Travel Research Record"
+  },
+
+  ai: {
+    page: "/ai.html",
+    name: "AI Research Record"
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const query = (params.get("q") || "").trim().toLowerCase();
+
+if (query) {
+
+  const panel = document.getElementById("result-panel");
+  const result = document.getElementById("result");
+
+  panel.style.display = "block";
+
+  if (records[query]) {
+
+    result.innerHTML =
+      '<h2>' + records[query].name + '</h2>' +
+      '<p>Controlled record located.</p>' +
+      '<br>' +
+      '<a class="btn primary" href="' +
+      records[query].page +
+      '">OPEN RESEARCH RECORD</a>';
+
+  } else {
+
+    result.innerHTML =
+      '<p style="color:#F59E0B">' +
+      'No controlled record matched this search. ' +
+      'Please choose one of the available topics.' +
+      '</p>';
+
+  }
+}
+
+</script>
+
+</body>
+</html>
