@@ -1,0 +1,56 @@
+<escape><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORION | Investigation Console</title>
+  <link rel="stylesheet" href="orion.css">
+  <style>
+    body { background: #101820; color: #edf5f4; font-family: Arial, sans-serif; }
+    main { max-width: 900px; margin: 40px auto; padding: 24px; }
+    .panel { border: 1px solid #54e0c0; border-radius: 12px; padding: 20px; margin: 18px 0; }
+    h1, h2 { color: #54e0c0; }
+    a { color: #54e0c0; }
+    .note { color: #c5d2d0; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="index.html">← Back to ORION Home</a></p>
+    <h1>Investigation Console</h1>
+    <p class="note">Project ORION · Digital Forensics Demonstration</p>
+
+    <section class="panel">
+      <h2>Case Overview</h2>
+      <p>Case reference: DDW-104-A07</p>
+      <p>This educational case demonstrates how available web-server logs and local file artifacts can be examined together.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Evidence Sources</h2>
+      <ul>
+        <li>NGINX access logs: recorded HTTP requests and timestamps.</li>
+        <li>Download-folder examination: whether a named file is present in the checked location.</li>
+        <li>SHA-256: a hash used to check whether evidence files have changed.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Investigation Workflow</h2>
+      <ol>
+        <li>Preserve and examine available logs.</li>
+        <li>Identify relevant search and download requests.</li>
+        <li>Compare timestamps with available local file artifacts.</li>
+        <li>Document observations and limitations.</li>
+      </ol>
+    </section>
+
+    <section class="panel">
+      <h2>Important Limitation</h2>
+      <p class="note">A missing file in a checked folder does not prove secure deletion. Server logs do not establish a visitor's real-world identity or defeat Tor anonymity. Findings must be interpreted alongside other evidence.</p>
+    </section>
+
+    <p><a href="search.html">Open Research Archive</a></p>
+  </main>
+</body>
+</html></escape>
