@@ -1,0 +1,59 @@
+<escape><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Project ORION</title>
+  <link rel="stylesheet" href="orion.css">
+  <style>
+    body { background: #101820; color: #edf5f4; font-family: Arial, sans-serif; }
+    main { max-width: 850px; margin: 40px auto; padding: 24px; }
+    section { border: 1px solid #54e0c0; border-radius: 12px; padding: 20px; margin: 18px 0; }
+    h1, h2 { color: #54e0c0; }
+    p, li { line-height: 1.7; }
+    a { color: #54e0c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="index.html">← Back to ORION Home</a></p>
+    <h1>About Project ORION</h1>
+    <p>An educational digital-forensics demonstration.</p>
+
+    <section>
+      <h2>Project Objective</h2>
+      <p>ORION demonstrates how investigators can examine available web-server logs and correlate recorded HTTP requests with local download-folder artifacts to document a sequence of events.</p>
+    </section>
+
+    <section>
+      <h2>Technologies Used</h2>
+      <ul>
+        <li>Kali Linux</li>
+        <li>NGINX web server and access logs</li>
+        <li>Tor onion services for a controlled lab demonstration</li>
+        <li>Bash scripting</li>
+        <li>SHA-256 evidence integrity checks</li>
+        <li>HTML and CSS</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What I Learned</h2>
+      <ul>
+        <li>Examining HTTP access records and timestamps.</li>
+        <li>Correlating evidence from different sources.</li>
+        <li>Checking files and recording their hashes.</li>
+        <li>Documenting findings without overstating what the evidence proves.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Scope and Limitations</h2>
+      <p>ORION is a controlled educational demonstration. A missing file in a checked folder does not prove secure deletion, and server logs alone do not identify a real-world visitor or defeat Tor anonymity.</p>
+    </section>
+
+    <p><a href="search.html">Explore the Research Archive</a></p>
+    <p><a href="investigation.html">View the Investigation Console</a></p>
+  </main>
+</body>
+</html></escape>
