@@ -53,3 +53,13 @@ This is a controlled educational demonstration. Server logs record HTTP requests
 Educational prototype developed for a digital-forensics demonstration.
 
 **Author:** Harshitha
+## Project Screenshots
+
+### 1. ORION Homepage
+![ORION Homepage](homepage.jpeg)
+
+### 2. ORION Search Page
+![ORION Search Page](serachpage.jpeg)
+
+### 3. ORION Investigation Results
+![ORION Investigation Results](result.jpeg)
