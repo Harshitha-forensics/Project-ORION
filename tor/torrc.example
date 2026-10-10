@@ -1,0 +1,6 @@
+
+# Project ORION — Tor onion service example
+# Example only. Review paths and settings before use.
+
+HiddenServiceDir /var/lib/tor/orion/
+HiddenServicePort 80 127.0.0.1:80
