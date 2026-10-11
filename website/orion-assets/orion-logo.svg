@@ -1,9 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<rect width="200" height="200" rx="28" fill="#101820"/>
-<circle cx="100" cy="88" r="54" fill="none" stroke="#54E0C0" stroke-width="5"/>
-<circle cx="100" cy="88" r="43" fill="none" stroke="#54E0C0" stroke-width="2" stroke-dasharray="5 6"/>
-<path d="M100 48 L132 66 L132 104 L100 123 L68 104 L68 66 Z" fill="none" stroke="#FFFFFF" stroke-width="3"/>
-<circle cx="100" cy="85" r="13" fill="#54E0C0"/>
-<text x="100" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="4" fill="#FFFFFF">ORION</text>
-<text x="100" y="176" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" letter-spacing="2" fill="#54E0C0">DIGITAL FORENSICS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470">
+  <defs>
+    <linearGradient id="blue">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#665dff"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#17303d"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="470" fill="#06141e"/>
+  <rect width="900" height="470" fill="url(#grid)"/>
+  <circle cx="420" cy="235" r="165" fill="none" stroke="#164151"/>
+  <g transform="translate(165 235)" fill="none" stroke="url(#blue)" stroke-width="5">
+    <ellipse rx="86" ry="35" transform="rotate(-28)"/>
+    <ellipse rx="86" ry="35" transform="rotate(28)"/>
+    <ellipse rx="86" ry="35" transform="rotate(90)"/>
+    <circle r="30" stroke="#00cfff"/>
+    <circle r="12" fill="#00dfff" stroke="none"/>
+    <circle cx="-82" cy="-31" r="7" fill="#00dfff" stroke="none"/>
+    <circle cx="77" cy="48" r="7" fill="#437dff" stroke="none"/>
+  </g>
+  <text x="265" y="225" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700" letter-spacing="5" fill="#f2f4f8">ORION</text>
+  <text x="268" y="272" font-family="Arial, Helvetica, sans-serif" font-size="20" letter-spacing="6" fill="#aab9c8">FORENSIC RESEARCH NETWORK</text>
 </svg>
