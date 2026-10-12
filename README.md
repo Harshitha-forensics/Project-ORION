@@ -54,6 +54,16 @@ Special thanks to **Vinod Kaparthi Sir** for his valuable guidance and support t
 ---
 
 *Project ORION is intended for educational and authorized digital-forensics demonstrations.*
+## Author
+
+**Harshitha**  
+Project Creator and Developer — Project ORION
+
+Developed as an educational digital-forensics demonstration exploring web activity, evidence analysis, and investigation workflows.
+
+## Acknowledgement
+
+Special thanks to **Vinod Kaparthi Sir** for his valuable guidance and support throughout this project.
 ## Project Screenshots
 
 ### 1. ORION Homepage
