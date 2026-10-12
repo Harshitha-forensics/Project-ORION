@@ -1,58 +1,59 @@
 # Project ORION — Digital Forensics Demonstration
 
-An educational cybersecurity project demonstrating a Tor onion-service research portal and digital-forensics investigation using NGINX access logs.
+**Project ORION** is an educational digital-forensics project that demonstrates how web activity and digital evidence can be examined, organized, and interpreted during an investigation.
+
+🌐 **Live Website:** https://harshitha-forensics.github.io/Project-ORION/website/
 
 ## About the Project
 
-Project ORION explores how surviving web-server records can help reconstruct recorded activity on a controlled research portal.
+ORION presents a research-archive interface where users can explore topics and download sample evidence packages. The project introduces the stages of a digital-forensics investigation, including examining available records, reviewing evidence files, creating a timeline, and understanding the limitations of digital evidence.
 
-A visitor searches the portal and downloads a harmless sample evidence package. The investigator examines the server logs and correlates recorded requests with available local file evidence.
+The project was developed as an educational demonstration for forensic awareness and learning.
 
-## Objectives
+## Features
 
-- Demonstrate a Tor onion-service website.
-- Understand HTTP request logging using NGINX.
-- Examine recorded search and download requests.
-- Correlate timestamps, requested resources, and available file evidence.
-- Generate an investigation timeline and report.
+- Research archive with multiple searchable topics
+- Topic-specific research record pages
+- Downloadable sample evidence package
+- Investigator evidence log and research files
+- Investigation workflow explaining search, access, download requests, and possible local deletion
+- Educational discussion of evidence correlation and timeline reconstruction
 
 ## Technologies Used
 
-- Kali Linux
-- Tor onion services
-- NGINX
-- HTML and CSS
-- Bash scripting
-- SHA-256 hashing
+- **Kali Linux** — forensic demonstration environment
+- **Tor** — exploring privacy-focused web access in the original local demonstration
+- **NGINX** — web server used in the local demonstration
+- **HTML and CSS** — website structure and design
+- **JavaScript** — interactive topic records
+- **Bash** — command-line tasks
+- **SHA-256** — demonstrating file-integrity verification
 
-## Demonstration Workflow
+## Live Website and Local Demonstration
 
-1. Start the web server and Tor service.
-2. Open the ORION research portal.
-3. Search for a sample topic.
-4. Download a harmless evidence package.
-5. Delete the local downloaded copy for the demonstration.
-6. Examine surviving server logs and available file evidence.
-7. Correlate the findings and prepare a case report.
+The website hosted through GitHub Pages provides the public-facing ORION interface and sample downloadable materials.
 
-## Repository Contents
+**The live GitHub Pages website is a static educational version.** It does not run the original Kali Linux/Tor/NGINX environment, collect live visitor activity, or provide real-time forensic monitoring. The original local demonstration used a separate environment to explain web-server logs and file-related evidence.
 
-- `ORION_SOURCE_CODE.zip` — packaged source files.
-- `website/` — website pages and styling.
-- `scripts/` — startup and investigation scripts.
-- `tor/torrc.example` — example Tor configuration.
-- `nginx/orion-site.conf` — example NGINX configuration.
-- `screenshots/` — project screenshots, to be added.
+Some investigation stages shown on the website are illustrative. They are intended to explain a forensic workflow, not to claim that a real visitor’s activity has been automatically captured.
 
-## Forensic Limitations
+## Important Forensic Limitation
 
-This is a controlled educational demonstration. Server logs record HTTP requests but do not independently prove a visitor's real-world identity or prove secure deletion. ORION does not break Tor anonymity or guarantee recovery of deleted files.
+A web-server access log can show requests received by the server, such as a request for a file and the server’s response status. By itself, it cannot prove that the visitor successfully saved the file or later deleted it from their device.
 
-## Project Status
+Confirming a local download or deletion would require appropriate device-side evidence, such as browser artifacts, filesystem records, or other relevant forensic data. Findings should be correlated and interpreted carefully.
 
-Educational prototype developed for a digital-forensics demonstration.
+## Evidence Package
 
-**Author:** Harshitha
+The downloadable sample package contains research files for multiple topics and an investigator evidence log. These files are educational sample materials, not records collected from real visitors.
+
+## Acknowledgement
+
+Special thanks to **Vinod Kaparthi Sir** for his valuable guidance and support throughout this project.
+
+---
+
+*Project ORION is intended for educational and authorized digital-forensics demonstrations.*
 ## Project Screenshots
 
 ### 1. ORION Homepage
