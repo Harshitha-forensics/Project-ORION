@@ -1,59 +1,132 @@
-<escape><!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Project ORION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Project ORION</title>
   <link rel="stylesheet" href="orion.css">
   <style>
-    body { background: #101820; color: #edf5f4; font-family: Arial, sans-serif; }
-    main { max-width: 850px; margin: 40px auto; padding: 24px; }
-    section { border: 1px solid #54e0c0; border-radius: 12px; padding: 20px; margin: 18px 0; }
-    h1, h2 { color: #54e0c0; }
-    p, li { line-height: 1.7; }
-    a { color: #54e0c0; }
+    body {
+      background: #07111f;
+      color: #e8f0ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .about-container {
+      width: min(900px, 90%);
+      margin: 48px auto;
+    }
+    .eyebrow {
+      color: #54d9ff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+    h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.15;
+      margin: 12px 0;
+    }
+    h2 { color: #54d9ff; margin-top: 30px; }
+    .intro, .info-card {
+      background: #101f33;
+      border: 1px solid #24445f;
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 22px;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid #54d9ff;
+      color: #54d9ff;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      margin: 5px 5px 0 0;
+    }
+    a { color: #54d9ff; }
+    .footer-note { color: #a9bad1; font-size: 14px; }
   </style>
 </head>
 <body>
-  <main>
-    <p><a href="index.html">← Back to ORION Home</a></p>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a> |
+      <a href="search.html">Research Archive</a> |
+      <a href="about.html">About</a> |
+      <a href="investigation.html">Investigation</a>
+    </nav>
+  </header>
+
+  <main class="about-container">
+    <p class="eyebrow">Digital Forensics Demonstration</p>
     <h1>About Project ORION</h1>
-    <p>An educational digital-forensics demonstration.</p>
+    <p>Observe. Record. Investigate. Understand.</p>
 
-    <section>
-      <h2>Project Objective</h2>
-      <p>ORION demonstrates how investigators can examine available web-server logs and correlate recorded HTTP requests with local download-folder artifacts to document a sequence of events.</p>
+    <section class="intro">
+      <h2>What is ORION?</h2>
+      <p>
+        Project ORION is an educational digital-forensics demonstration
+        that explores how web-server logs, file metadata, timestamps,
+        and cryptographic hashes can support an investigation.
+      </p>
+      <p>
+        Visitors can explore sample research records and download an
+        educational evidence package. Investigators can then examine
+        example evidence sources and document their findings.
+      </p>
     </section>
 
-    <section>
-      <h2>Technologies Used</h2>
+    <section class="info-card">
+      <h2>Project objectives</h2>
       <ul>
-        <li>Kali Linux</li>
-        <li>NGINX web server and access logs</li>
-        <li>Tor onion services for a controlled lab demonstration</li>
-        <li>Bash scripting</li>
-        <li>SHA-256 evidence integrity checks</li>
-        <li>HTML and CSS</li>
+        <li>Demonstrate a searchable research archive.</li>
+        <li>Explain how web-server access logs record HTTP requests.</li>
+        <li>Introduce timestamps, file metadata, and SHA-256 hashes.</li>
+        <li>Show how investigators correlate evidence from different sources.</li>
+        <li>Explain the limitations of digital evidence.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>What I Learned</h2>
-      <ul>
-        <li>Examining HTTP access records and timestamps.</li>
-        <li>Correlating evidence from different sources.</li>
-        <li>Checking files and recording their hashes.</li>
-        <li>Documenting findings without overstating what the evidence proves.</li>
-      </ul>
+    <section class="info-card">
+      <h2>Technologies used</h2>
+      <span class="tag">Kali Linux</span>
+      <span class="tag">Tor</span>
+      <span class="tag">NGINX</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">Bash</span>
+      <span class="tag">SHA-256</span>
     </section>
 
-    <section>
-      <h2>Scope and Limitations</h2>
-      <p>ORION is a controlled educational demonstration. A missing file in a checked folder does not prove secure deletion, and server logs alone do not identify a real-world visitor or defeat Tor anonymity.</p>
+    <section class="info-card">
+      <h2>Evidence and limitations</h2>
+      <p>
+        A server access log can show that a resource was requested
+        and record the server's response. It does not, by itself,
+        prove that a visitor saved a file or later deleted it locally.
+      </p>
+      <p>
+        Claims about local downloads or deletion require relevant
+        evidence from the device or browser. The records in the
+        GitHub demonstration package are educational samples, not
+        evidence from a real criminal investigation.
+      </p>
     </section>
 
-    <p><a href="search.html">Explore the Research Archive</a></p>
-    <p><a href="investigation.html">View the Investigation Console</a></p>
+    <section class="info-card">
+      <h2>Acknowledgement</h2>
+      <p>
+        Special thanks to Vinod Kaparthi Sir for his valuable guidance
+        and support throughout this project.
+      </p>
+    </section>
+
+    <p class="footer-note">
+      Project ORION — Educational Digital Forensics Demonstration
+    </p>
   </main>
 </body>
-</html></escape>
+</html>
