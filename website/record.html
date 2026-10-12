@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORION | Research Record</title>
+  <link rel="stylesheet" href="orion.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="orion-assets/orion-logo.svg"
+           alt="ORION logo" width="140">
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="search.html">Archive Search</a>
+      <a href="investigation.html">Investigation</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <p class="subtitle">PROJECT ORION · CONTROLLED ARCHIVE</p>
+    <h1 id="recordTitle">Research Record</h1>
+    <p id="recordIntro">
+      Educational research archive demonstration.
+    </p>
+
+    <section>
+      <h2>Record Summary</h2>
+      <p><strong>Record ID:</strong> <span id="recordId"></span></p>
+      <p><strong>Category:</strong> <span id="recordCategory"></span></p>
+      <p><strong>Status:</strong> Demonstration record</p>
+    </section>
+
+    <section>
+      <h2>Research Notes</h2>
+      <p id="recordNotes"></p>
+      <p>
+        This sample record demonstrates how an investigator can
+        document an accessed archive item. A page visit alone does
+        not prove a download or deletion; those claims require
+        separate supporting evidence.
+      </p>
+    </section>
+
+    <section>
+      <h2>Evidence Package</h2>
+      <p id="downloadMessage">
+        Check the available demonstration materials for this topic.
+      </p>
+      <a id="downloadButton" class="btn primary" href="#">
+        DOWNLOAD EVIDENCE PACKAGE
+      </a>
+    </section>
+
+    <p><a class="btn primary" href="search.html">
+      BACK TO ARCHIVE SEARCH
+    </a></p>
+
+    <p><a href="index.html">← Return to ORION Home</a></p>
+  </main>
+
+  <script>
+    const topics = {
+      pizza: {
+        name: "Pizza Research Record",
+        category: "Food Research",
+        id: "ORION-PIZZA-001",
+        notes: "A sample food-research record for demonstrating archive access and evidence documentation.",
+        file: "Pizza_Evidence_Package.zip"
+      },
+      flowers: {
+        name: "Flowers Research Record",
+        category: "Nature Research",
+        id: "ORION-FLOWERS-001",
+        notes: "A sample archive record about flowers and botanical research."
+      },
+      mountain: {
+        name: "Mountain Research Record",
+        category: "Geography Research",
+        id: "ORION-MOUNTAIN-001",
+        notes: "A sample archive record about mountains and geography."
+      },
+      football: {
+        name: "Football Research Record",
+        category: "Sports Research",
+        id: "ORION-FOOTBALL-001",
+        notes: "A sample archive record about football and sports research."
+      },
+      space: {
+        name: "Space Research Record",
+        category: "Space Research",
+        id: "ORION-SPACE-001",
+        notes: "A sample archive record about space exploration and astronomy."
+      },
+      technology: {
+        name: "Technology Research Record",
+        category: "Technology",
+        id: "ORION-TECH-001",
+        notes: "A sample archive record about technology research."
+      },
+      music: {
+        name: "Music Research Record",
+        category: "Music Research",
+        id: "ORION-MUSIC-001",
+        notes: "A sample archive record about music and audio research."
+      },
+      photography: {
+        name: "Photography Research Record",
+        category: "Photography",
+        id: "ORION-PHOTO-001",
+        notes: "A sample archive record about photography techniques."
+      },
+      travel: {
+        name: "Travel Research Record",
+        category: "Travel Research",
+        id: "ORION-TRAVEL-001",
+        notes: "A sample archive record about travel destinations."
+      },
+      ai: {
+        name: "AI Research Record",
+        category: "Artificial Intelligence",
+        id: "ORION-AI-001",
+        notes: "A sample archive record about artificial intelligence."
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const topicKey = (params.get("topic") || "").toLowerCase();
+    const topic = topics[topicKey] || topics.pizza;
+
+    document.title = "ORION | " + topic.name;
+    document.getElementById("recordTitle").textContent = topic.name;
+    document.getElementById("recordIntro").textContent =
+      "Explore this educational item in the ORION research archive.";
+    document.getElementById("recordId").textContent = topic.id;
+    document.getElementById("recordCategory").textContent = topic.category;
+    document.getElementById("recordNotes").textContent = topic.notes;
+
+    const downloadButton = document.getElementById("downloadButton");
+    const downloadMessage = document.getElementById("downloadMessage");
+
+    if (topic.file) {
+      downloadButton.href = topic.file;
+      downloadButton.setAttribute("download", "");
+      downloadButton.hidden = false;
+      downloadMessage.textContent =
+        "A demonstration evidence package is available for this topic.";
+    } else {
+      downloadButton.hidden = true;
+      downloadMessage.textContent =
+        "A downloadable package has not been added for this topic yet.";
+    }
+  </script>
+</body>
+</html>
