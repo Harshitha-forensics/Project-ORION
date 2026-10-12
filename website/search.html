@@ -190,59 +190,48 @@
 </div>
 
 <script>
-
 const records = {
   flowers: {
-    page: "flowers.html",
+    page: "record.html?topic=flowers",
     name: "Flowers Research Record"
   },
-
   mountain: {
-    page: "mountain.html",
+    page: "record.html?topic=mountain",
     name: "Mountain Research Record"
   },
-
   football: {
-    page: "football.html",
+    page: "record.html?topic=football",
     name: "Football Research Record"
   },
-
   space: {
-    page: "space.html",
+    page: "record.html?topic=space",
     name: "Space Research Record"
   },
-
   pizza: {
-    page: "pizza.html",
+    page: "record.html?topic=pizza",
     name: "Pizza Research Record"
   },
-
   technology: {
-    page: "technology.html",
+    page: "record.html?topic=technology",
     name: "Technology Research Record"
   },
-
   music: {
-    page: "music.html",
+    page: "record.html?topic=music",
     name: "Music Research Record"
   },
-
   photography: {
-    page: "photography.html",
+    page: "record.html?topic=photography",
     name: "Photography Research Record"
   },
-
   travel: {
-    page: "travel.html",
+    page: "record.html?topic=travel",
     name: "Travel Research Record"
   },
-
   ai: {
-    page: "ai.html",
+    page: "record.html?topic=ai",
     name: "AI Research Record"
   }
 };
-
 const params = new URLSearchParams(window.location.search);
 const query = (params.get("q") || "").trim().toLowerCase();
 
