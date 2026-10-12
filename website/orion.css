@@ -640,4 +640,67 @@ input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,217,255,.07)}
   .nav,.footer,.no-print{display:none}
   .evidence-card{box-shadow:none}
 }
-                                                                                                                   
+
+/* ORION — animated cyan button border */
+.buttons a,
+.btn,
+.button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttons a::before,
+.btn::before,
+.button::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--orion-angle, 0deg),
+    transparent 0deg,
+    transparent 230deg,
+    #00bfff 280deg,
+    #55eaff 320deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.buttons a:hover::before,
+.btn:hover::before,
+.button:hover::before {
+  opacity: 1;
+  animation: orion-border-spin 1.5s linear infinite;
+}
+
+.buttons a:hover,
+.btn:hover,
+.button:hover {
+  box-shadow: 0 0 18px rgba(0, 191, 255, 0.25);
+}
+
+@keyframes orion-border-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buttons a:hover::before,
+  .btn:hover::before,
+  .button:hover::before {
+    animation: none;
+  }
+}
+
+
