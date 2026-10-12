@@ -1,59 +1,170 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ORION | Investigation Console</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigation | Project ORION</title>
   <link rel="stylesheet" href="orion.css">
   <style>
-    body { background: #101820; color: #edf5f4; font-family: Arial, sans-serif; }
-    main { max-width: 900px; margin: 40px auto; padding: 24px; }
-    .panel { border: 1px solid #54e0c0; border-radius: 12px; padding: 20px; margin: 18px 0; }
-    h1, h2 { color: #54e0c0; }
-    a { color: #54e0c0; }
-    .note { color: #c5d2d0; line-height: 1.6; }
+    body {
+      background: #07111f;
+      color: #e8f0ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .container {
+      width: min(950px, 90%);
+      margin: 42px auto;
+    }
+    .eyebrow {
+      color: #54d9ff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+    h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.2;
+      margin: 10px 0;
+    }
+    h2 { color: #54d9ff; }
+    .panel {
+      background: #101f33;
+      border: 1px solid #24445f;
+      border-radius: 14px;
+      padding: 22px;
+      margin: 20px 0;
+    }
+    .event {
+      border-left: 3px solid #54d9ff;
+      padding: 4px 0 4px 18px;
+      margin: 20px 0;
+    }
+    .label {
+      display: inline-block;
+      border: 1px solid #54d9ff;
+      border-radius: 18px;
+      color: #54d9ff;
+      padding: 3px 10px;
+      font-size: 12px;
+    }
+    .warning {
+      border-left: 4px solid #f6b84a;
+      padding: 12px 16px;
+      background: #292719;
+      border-radius: 8px;
+    }
+    a { color: #54d9ff; }
+    .muted { color: #afc0d7; font-size: 14px; }
   </style>
 </head>
 <body>
-  <main>
-    <a href="index.html">
-  <img src="orion-assets/orion-logo.svg" alt="ORION" width="160">
-</a>
-<p><a href="index.html">← Back to ORION Home</a></p>
- <h1>Investigation Console</h1>
-    <p class="note">Project ORION · Digital Forensics Demonstration</p>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a> |
+      <a href="search.html">Research Archive</a> |
+      <a href="about.html">About</a> |
+      <a href="investigation.html">Investigation</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <p class="eyebrow">Digital Evidence Review</p>
+    <h1>ORION Investigation Console</h1>
+    <p>Case Reference: <strong>ORION-DEMO-001</strong></p>
 
     <section class="panel">
-      <h2>Case Overview</h2>
-      <p>Case reference: DDW-104-A07</p>
-      <p>This educational case demonstrates how available web-server logs and local file artifacts can be examined together.</p>
+      <h2>Investigation objective</h2>
+      <p>
+        Examine available records to understand which archive pages
+        were requested, which files were requested, and what the
+        collected evidence can reliably establish.
+      </p>
+      <span class="label">Educational Demonstration</span>
     </section>
 
     <section class="panel">
-      <h2>Evidence Sources</h2>
+      <h2>Evidence timeline</h2>
+
+      <div class="event">
+        <span class="label">1 · Search</span>
+        <h3>Research term entered</h3>
+        <p>
+          Example: a visitor searches for “flowers”.
+        </p>
+        <p class="muted">
+          Evidence source: a recorded browser-side event or other
+          relevant record. NGINX does not automatically log text
+          entered into a search box.
+        </p>
+      </div>
+
+      <div class="event">
+        <span class="label">2 · Access</span>
+        <h3>Research record requested</h3>
+        <p>
+          Example: Flowers Research Record
+          (ORION-FLOWERS-001).
+        </p>
+        <p class="muted">
+          Evidence source: web-server access log, if available.
+          It may show a request timestamp, path, and response status.
+        </p>
+      </div>
+
+      <div class="event">
+        <span class="label">3 · Download request</span>
+        <h3>Evidence package requested</h3>
+        <p>File: Pizza_Evidence_Package.zip</p>
+        <p class="muted">
+          Evidence source: server log entry for the ZIP request.
+          A successful response does not alone prove that the file
+          was completely saved on the visitor’s device.
+        </p>
+      </div>
+
+      <div class="event">
+        <span class="label">4 · Local deletion</span>
+        <h3>Device-side evidence required</h3>
+        <p>
+          A local deletion event must be supported by appropriate
+          device or browser artifacts, where available.
+        </p>
+        <p class="muted">
+          GitHub Pages and ordinary web-server logs cannot independently
+          confirm that a visitor deleted a downloaded file.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Evidence correlation</h2>
       <ul>
-        <li>NGINX access logs: recorded HTTP requests and timestamps.</li>
-        <li>Download-folder examination: whether a named file is present in the checked location.</li>
-        <li>SHA-256: a hash used to check whether evidence files have changed.</li>
+        <li>Compare timestamps from available sources.</li>
+        <li>Match requested paths to the relevant research records.</li>
+        <li>Use SHA-256 hashes to check file integrity.</li>
+        <li>Document the source and limitations of each finding.</li>
       </ul>
     </section>
 
     <section class="panel">
-      <h2>Investigation Workflow</h2>
-      <ol>
-        <li>Preserve and examine available logs.</li>
-        <li>Identify relevant search and download requests.</li>
-        <li>Compare timestamps with available local file artifacts.</li>
-        <li>Document observations and limitations.</li>
-      </ol>
+      <h2>Investigation conclusion</h2>
+      <p>
+        A reliable conclusion is based on corroborating evidence,
+        not assumptions. Separate directly observed events from
+        inferred activity and clearly identify any evidence gaps.
+      </p>
+      <div class="warning">
+        <strong>Important:</strong> This page illustrates an
+        investigation workflow. Its example events are not live
+        telemetry and must not be presented as actual visitor activity.
+      </div>
     </section>
 
-    <section class="panel">
-      <h2>Important Limitation</h2>
-      <p class="note">A missing file in a checked folder does not prove secure deletion. Server logs do not establish a visitor's real-world identity or defeat Tor anonymity. Findings must be interpreted alongside other evidence.</p>
-    </section>
-
-    <p><a href="search.html">Open Research Archive</a></p>
+    <p><a href="search.html">Return to the ORION Research Archive</a></p>
+    <p class="muted">Project ORION — Educational Digital Forensics Demonstration</p>
   </main>
 </body>
 </html>
